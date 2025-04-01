@@ -13,7 +13,7 @@
         <label for="email">Correo Electrónico</label>
         <input [(ngModel)]="selectedUser.email" name="email" id="email" type="email" class="form-control"
           placeholder="Correo Electrónico" required />
-      </div> 
+      </div>
       <div class="form-group">
         <label for="birthDate">Fecha de Nacimiento</label>
         <input [(ngModel)]="selectedUser.birthDate" name="birthDate" id="birthDate" type="date" class="form-control"
@@ -28,6 +28,11 @@
         <input [(ngModel)]="selectedUser.password" name="password" id="password" type="password" class="form-control"
           placeholder="Contraseña" required />
       </div>
+
+      <!-- Integración del RatingComponent -->
+      <h3>Valoraciones del Usuario</h3>
+      <app-rating [userId]="selectedUser._id"></app-rating>
+
       <button type="submit" class="btn btn-primary">Actualizar</button>
       <button type="button" class="btn btn-secondary" (click)="selectedUser = null">Cancelar</button>
     </form>
@@ -82,7 +87,6 @@
       </div>
     </li>
   </ul>
-
 
   <div class="pagination-controls">
     <pagination-controls (pageChange)="page = $event; getUsers()"></pagination-controls>

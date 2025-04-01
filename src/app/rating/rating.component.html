@@ -1,0 +1,43 @@
+<div class="rating-container">
+    <h3>Valoraciones</h3>
+    <ul>
+        <li *ngFor="let rating of ratings">
+            <strong>{{ rating.score }} estrellas</strong> - {{ rating.comment }}
+            <br />
+            <small *ngIf="rating.rater && rating.rater.name">Realizada por: {{ rating.rater.name }} ({{ rating.rater.email }})</small>
+            <br />
+            <small *ngIf="rating.user && rating.user.name">Dirigida a: {{ rating.user.name }} ({{ rating.user.email }})</small>
+          </li>
+    </ul>
+
+    <h4>Añadir valoración</h4>
+    <form (ngSubmit)="addRating()">
+        <div class="form-group">
+            <label for="score">Puntuación:</label>
+            <input
+                type="number"
+                [(ngModel)]="newRating.score"
+                name="score"
+                id="score"
+                min="1"
+                max="5"
+                class="form-control"
+                placeholder="Puntuación (1-5)"
+                required
+            />
+        </div>
+        <div class="form-group">
+            <label for="comment">Comentario:</label>
+            <textarea
+                [(ngModel)]="newRating.comment"
+                name="comment"
+                id="comment"
+                class="form-control"
+                placeholder="Escribe un comentario"
+                rows="3"
+                required
+            ></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Añadir valoración</button>
+    </form>
+</div>

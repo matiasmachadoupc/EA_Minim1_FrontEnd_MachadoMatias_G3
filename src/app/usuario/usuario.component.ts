@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user.model';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { tap } from 'rxjs/operators';
 import { CreateUserDTO } from '../models/user.model';
+import { NgForOf, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { RatingComponent } from '../rating/rating.component'; // Importar RatingComponent
 
 @Component({
   selector: 'app-user',
-  imports: [FormsModule, CommonModule, NgxPaginationModule],
+  imports: [FormsModule, CommonModule, NgxPaginationModule, RatingComponent],
   standalone: true,
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.css']
